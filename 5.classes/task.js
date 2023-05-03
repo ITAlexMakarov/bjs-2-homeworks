@@ -90,10 +90,14 @@ class PrintEditionItem {
           //}
       
      
-    giveBookByName(bookName)  {
-      let deleteBook = this.books.findIndex(type => type.name === bookName);
-      this.books.splice(deleteBook, 1);
-      }
+        giveBookByName(bookName)  {
+        let indexDeleteBook = this.books.findIndex(type => type.name === bookName);
+          if (indexDeleteBook > -1) {
+          return this.books.splice(indexDeleteBook, 1)[0]; 
+         } else {
+          return indexDeleteBook = null;
+            }
+        }
   }
   
   const library = new Library("Библиотека имени Ленина");
