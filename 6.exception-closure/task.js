@@ -40,8 +40,16 @@ class Triangle {
 
 function getTriangle(a, b, c)   {
     try {
-        new Triangle(a, b, c);
-    }   catch (err) {
-        return new Error("Ошибка! Треугольник не существует»")
+        return new Triangle(a, b, c);
+    }   catch (error) {
+        return  {
+            get perimeter() {
+                return "Ошибка! Треугольник не существует";
+            },
+            
+            get area() {
+                return "Ошибка! Треугольник не существует";
+            }
+        }
     }
 }
