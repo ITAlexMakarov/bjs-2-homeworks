@@ -17,9 +17,15 @@ class AlarmClock  {
 
       this.alarmCollection.push(clock);
 
-      if(clock.time === this.alarmCollection[0].time)  {
-        console.warn("Уже присутствует звонок на это же время")
-      };
+      this.alarmCollection.some(clock => {
+        if(clock.time !== time)  {
+          console.warn("Уже присутствует звонок на это же время");
+        }
+      });
+
+      // if(clock.time === this.alarmCollection[0].time)  {
+      //   console.warn("Уже присутствует звонок на это же время")
+      // };
     }
 
     removeClock(time) {
